@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Abp.Application.Services;
 using Abp.Domain.Services;
 using Test_Boilerplate.BO;
 using Test_Boilerplate.DAL;
@@ -9,7 +10,7 @@ using Test_Boilerplate.Model;
 
 namespace Test_Boilerplate.AppService
 {
-  public class PersonAppService:DomainService,IPersonAppService
+  public class PersonAppService: ApplicationService, IPersonAppService
   {
     private readonly IPersonManager _personManager;
 
