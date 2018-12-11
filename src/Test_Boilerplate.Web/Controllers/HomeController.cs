@@ -15,7 +15,7 @@ namespace Test_Boilerplate.Web.Controllers
 
     public ActionResult Index()
     {
-      _PersonAppService.Person_Insert("Test New Ioc");
+      _PersonAppService.Person_InsertAsync("Test New Ioc");
 
       return View();
     }

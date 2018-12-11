@@ -5,8 +5,8 @@ namespace Test_Boilerplate.DAL
 {
   public interface IPersonManager 
   {
-    Task Person_Insert(string PersonName);
-    Task<Person> GetPersonById(long Id);
+    Task Person_InsertAsync(string PersonName);
+    Task<Person> GetPersonByIdAsync(long Id);
 
   }
 }

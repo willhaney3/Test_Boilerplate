@@ -15,12 +15,12 @@ namespace Test_Boilerplate.DAL
       _personRepository = personRepository;
     }
 
-    public async Task Person_Insert(string PersonName)
+    public async Task Person_InsertAsync(string PersonName)
     {
       await _personRepository.InsertAsync(new Person() {PersonName = PersonName});
     }
 
-    public async Task<Person> GetPersonById(long Id)
+    public async Task<Person> GetPersonByIdAsync(long Id)
     {
       return await _personRepository.GetAsync(Id);
     }

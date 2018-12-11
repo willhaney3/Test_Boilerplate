@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Abp.Application.Services;
 using Test_Boilerplate.DAL;
+using Test_Boilerplate.Model;
 
 namespace Test_Boilerplate.AppService
 {
@@ -13,11 +14,15 @@ namespace Test_Boilerplate.AppService
       _personManager = personManager;
     }
 
-    public async Task Person_Insert( string lastName)
+    public async Task Person_InsertAsync( string lastName)
     {
-     await _personManager.Person_Insert(lastName);
+     await _personManager.Person_InsertAsync(lastName);
     }
 
+    public async Task<Person> GetPersonByIdAsync(long Id)
+    {
+      return await _personManager.GetPersonByIdAsync(Id);
+    }
 
   }
 }
