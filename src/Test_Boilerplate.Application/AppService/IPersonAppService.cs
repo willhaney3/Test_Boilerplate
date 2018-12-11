@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Test_Boilerplate.Model;
 
-namespace Test_Boilerplate.BO
+namespace Test_Boilerplate.AppService
 {
   public interface IPersonAppService
   {
-    Task Person_Insert(string PersonName);
-    Task<Person> GetPersonById(long Id);
-
+    Task Person_Insert(string lastName);
   }
 }

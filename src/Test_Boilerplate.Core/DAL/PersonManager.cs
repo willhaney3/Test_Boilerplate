@@ -5,12 +5,12 @@ using Test_Boilerplate.Model;
 
 namespace Test_Boilerplate.DAL
 {
-  public class PersonManager: Abp.Domain.Services.DomainService, IPersonManager
+  public class PersonManager: DomainService, IPersonManager
   {
 
-    private readonly AbpRepositoryBase<Person, long> _personRepository;
+    private readonly IRepository<Person,long> _personRepository;
 
-    public PersonManager(AbpRepositoryBase<Person,long> personRepository)
+    public PersonManager(IRepository<Person,long> personRepository)
     {
       _personRepository = personRepository;
     }

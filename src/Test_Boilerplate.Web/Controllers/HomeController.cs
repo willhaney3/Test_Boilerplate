@@ -1,30 +1,29 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Test_Boilerplate.BO;
+using Test_Boilerplate.AppService;
 
 namespace Test_Boilerplate.Web.Controllers
 {
-    public class HomeController : Test_BoilerplateControllerBase
+  public class HomeController : Test_BoilerplateControllerBase
+  {
+
+    private readonly IPersonAppService _PersonAppService;
+
+    public HomeController(IPersonAppService personAppService)
     {
-
-      private readonly IPersonAppService _personAppService;
-
-      public HomeController(IPersonAppService personAppService)
-      {
-        _personAppService = personAppService;
-      }
-
-        public async Task<ActionResult> Index()
-        {
-
-          await _personAppService.Person_Insert("Test person");
-
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            return View();
-        }
+      _PersonAppService = personAppService;
     }
+
+    public ActionResult Index()
+    {
+      _PersonAppService.Person_Insert("Test New Ioc");
+
+      return View();
+    }
+
+    public ActionResult About()
+    {
+      return View();
+    }
+  }
 }
