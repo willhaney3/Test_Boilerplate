@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Test_Boilerplate.AppService;
 
@@ -13,16 +14,18 @@ namespace Test_Boilerplate.Web.Controllers
       _PersonAppService = personAppService;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      _PersonAppService.Person_InsertAsync("Test New Ioc");
+      await _PersonAppService.Person_InsertAsync("Test New Ioc");
 
       return View();
     }
 
-    public ActionResult About()
+    public async Task<ActionResult> About()
     {
-      return View();
+      var personDto = await _PersonAppService.GetPersonByIdAsync(1);
+
+      return View(personDto);
     }
   }
 }

@@ -1,5 +1,5 @@
 ﻿@using Test_Boilerplate.Web.Startup
-
+@model Test_Boilerplate.AppService.PersonDto
 
 @{
     ViewBag.ActiveMenu = PageNames.About;
@@ -12,5 +12,6 @@
 		@L("About_Description")
 	</div>
 	
+	@Model.PersonName
 
 </div>

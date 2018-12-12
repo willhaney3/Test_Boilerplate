@@ -7,6 +7,6 @@ namespace Test_Boilerplate.AppService
   {
     Task Person_InsertAsync(string lastName);
 
-    Task<Person> GetPersonByIdAsync(long Id);
+    Task<PersonDto> GetPersonByIdAsync(long Id);
   }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Abp.Application.Services;
+using Abp.ObjectMapping;
 using Test_Boilerplate.DAL;
 using Test_Boilerplate.Model;
 
@@ -8,10 +9,12 @@ namespace Test_Boilerplate.AppService
   public class PersonAppService: ApplicationService,  IPersonAppService
   {
     private readonly IPersonManager _personManager;
+    private readonly IObjectMapper _objectMapper;
 
-    public PersonAppService(IPersonManager personManager)
+    public PersonAppService(IPersonManager personManager, IObjectMapper objectMapper)
     {
       _personManager = personManager;
+      _objectMapper = objectMapper;
     }
 
     public async Task Person_InsertAsync( string lastName)
@@ -19,9 +22,13 @@ namespace Test_Boilerplate.AppService
      await _personManager.Person_InsertAsync(lastName);
     }
 
-    public async Task<Person> GetPersonByIdAsync(long Id)
+    public async Task<PersonDto> GetPersonByIdAsync(long Id)
     {
-      return await _personManager.GetPersonByIdAsync(Id);
+      var person = await _personManager.GetPersonByIdAsync(Id);
+
+      var x = _objectMapper.Map<PersonDto>(person);
+
+      return x;
     }
 
   }
