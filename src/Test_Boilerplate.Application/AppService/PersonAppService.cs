@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.ObjectMapping;
 using Test_Boilerplate.DAL;
@@ -27,6 +28,15 @@ namespace Test_Boilerplate.AppService
       var person = await _personManager.GetPersonByIdAsync(Id);
 
       var x = _objectMapper.Map<PersonDto>(person);
+
+      return x;
+    }
+
+    public async Task<List<PersonDto>> GetPersonsLikeAsync(string personName)
+    {
+      var r = await _personManager.GetPersonsLikeAsync(personName);
+
+      var x = _objectMapper.Map<List<PersonDto>>(r);
 
       return x;
     }

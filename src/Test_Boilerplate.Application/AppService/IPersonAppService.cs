@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Test_Boilerplate.Model;
 
 namespace Test_Boilerplate.AppService
@@ -8,5 +9,7 @@ namespace Test_Boilerplate.AppService
     Task Person_InsertAsync(string lastName);
 
     Task<PersonDto> GetPersonByIdAsync(long Id);
+
+    Task<List<PersonDto>> GetPersonsLikeAsync(string personName);
   }
 }

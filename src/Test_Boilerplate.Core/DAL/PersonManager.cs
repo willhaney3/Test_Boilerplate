@@ -1,7 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 using Abp.Domain.Repositories;
 using Abp.Domain.Services;
 using Test_Boilerplate.Model;
+ 
 
 namespace Test_Boilerplate.DAL
 {
@@ -23,6 +26,13 @@ namespace Test_Boilerplate.DAL
     public async Task<Person> GetPersonByIdAsync(long Id)
     {
       return await _personRepository.GetAsync(Id);
+    }
+
+    public async Task<IQueryable<Person>> GetPersonsLikeAsync(string personName)
+    {
+      var x = _personRepository.GetAll().Where(v => v.PersonName.Contains(personName));
+
+      return await Task.Run(() => x);
     }
   }
 }
