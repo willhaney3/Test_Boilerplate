@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Dynamic;
 using Abp.Domain.Entities;
 
 namespace Test_Boilerplate.Model
@@ -11,5 +14,6 @@ namespace Test_Boilerplate.Model
 
     public string PersonName { get; set; }
 
+    public ICollection<Item> Items { get; set; }
   }
 }

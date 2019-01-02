@@ -8,8 +8,9 @@ namespace Test_Boilerplate.EntityFrameworkCore
     {
         //Add DbSet properties for your entities...
       public virtual DbSet<Person> Person { get; set; }
+      public virtual DbSet<Item> Item { get; set; }
 
-        public Test_BoilerplateDbContext(DbContextOptions<Test_BoilerplateDbContext> options) 
+      public Test_BoilerplateDbContext(DbContextOptions<Test_BoilerplateDbContext> options) 
             : base(options)
         {
 
