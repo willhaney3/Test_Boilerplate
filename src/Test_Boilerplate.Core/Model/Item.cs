@@ -8,7 +8,7 @@ namespace Test_Boilerplate.Model
     [Column("ItemId")]
     public override long Id { get => base.Id; set => base.Id = value; }
 
-    public string PersonName { get; set; }
+    public string ItemName { get; set; }
 
     [ForeignKey("PersonId")]
     public Person Person { get; set; }

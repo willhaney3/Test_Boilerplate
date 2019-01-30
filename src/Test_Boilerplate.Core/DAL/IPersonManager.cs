@@ -6,8 +6,8 @@ namespace Test_Boilerplate.DAL
 {
   public interface IPersonManager 
   {
-    Task Person_InsertAsync(string PersonName);
-    Task<Person> GetPersonByIdAsync(long Id);
+    Task Person_InsertAsync(string personName);
+    Task<Person> GetPersonByIdAsync(long id);
     Task<IQueryable<Person>> GetPersonsLikeAsync(string personName);
 
   }

@@ -26,7 +26,7 @@ namespace Test_Boilerplate.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("PersonName");
+                    b.Property<string>("ItemName");
 
                     b.HasKey("PersonID");
 

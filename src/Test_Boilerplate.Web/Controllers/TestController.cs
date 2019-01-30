@@ -7,11 +7,11 @@ namespace Test_Boilerplate.Web.Controllers
 
   public class TestController : Test_BoilerplateControllerBase
   {
-    private readonly IPersonAppService _PersonAppService;
+    private readonly IPersonAppService _personAppService;
 
     public TestController(IPersonAppService personAppService)
     {
-      _PersonAppService = personAppService;
+      _personAppService = personAppService;
     }
 
     public async Task<ActionResult> Index()
@@ -19,8 +19,9 @@ namespace Test_Boilerplate.Web.Controllers
 
       //var personDto = await _PersonAppService.GetPersonByIdAsync(1);
 
-      var t = await _PersonAppService.GetPersonsLikeAsync("");
+      //var t = await _personAppService.GetPersonsLikeAsync("");
 
+	    await Task.Run(() => 0);
 
       return View(null);
     }
@@ -29,7 +30,7 @@ namespace Test_Boilerplate.Web.Controllers
     [IgnoreAntiforgeryToken]
     public async Task<ActionResult> Index2(PersonDto personDto)
     {
-      await _PersonAppService.Person_InsertAsync(personDto.PersonName);
+      await _personAppService.Person_InsertAsync(personDto.PersonName);
 
       return RedirectToAction("Index", "Home");
       

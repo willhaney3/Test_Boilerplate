@@ -28,7 +28,7 @@ namespace Test_Boilerplate.Migrations
 
                     b.Property<long?>("PersonId");
 
-                    b.Property<string>("PersonName");
+                    b.Property<string>("ItemName");
 
                     b.HasKey("Id");
 
@@ -44,7 +44,7 @@ namespace Test_Boilerplate.Migrations
                         .HasColumnName("PersonId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("PersonName");
+                    b.Property<string>("ItemName");
 
                     b.HasKey("Id");
 

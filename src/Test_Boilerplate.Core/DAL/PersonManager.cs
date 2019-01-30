@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Abp.Domain.Repositories;
 using Abp.Domain.Services;
@@ -18,14 +17,14 @@ namespace Test_Boilerplate.DAL
       _personRepository = personRepository;
     }
 
-    public async Task Person_InsertAsync(string PersonName)
+    public async Task Person_InsertAsync(string personName)
     {
-      await _personRepository.InsertAsync(new Person() {PersonName = PersonName});
+      await _personRepository.InsertAsync(new Person() {PersonName = personName});
     }
 
-    public async Task<Person> GetPersonByIdAsync(long Id)
+    public async Task<Person> GetPersonByIdAsync(long id)
     {
-      return await _personRepository.GetAsync(Id);
+      return await _personRepository.GetAsync(id);
     }
 
     public async Task<IQueryable<Person>> GetPersonsLikeAsync(string personName)

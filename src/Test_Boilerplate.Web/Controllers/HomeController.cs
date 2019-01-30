@@ -20,10 +20,10 @@ namespace Test_Boilerplate.Web.Controllers
 
       //var personDto = await _PersonAppService.GetPersonByIdAsync(1);
 
-      var t = await _PersonAppService.GetPersonsLikeAsync("");
+      var personDtos = await _PersonAppService.GetPersonsLikeAsync("");
 
 
-      return View(t);
+      return View(personDtos);
     }
 
     [HttpPost]
