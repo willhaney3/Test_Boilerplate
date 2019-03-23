@@ -14,14 +14,14 @@ namespace Test_Boilerplate.Web.Controllers
       _personAppService = personAppService;
     }
 
-    public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
 
       //var personDto = await _PersonAppService.GetPersonByIdAsync(1);
 
       //var t = await _personAppService.GetPersonsLikeAsync("");
 
-	    await Task.Run(() => 0);
+	    //await Task.Run(() => 0);
 
       return View(null);
     }

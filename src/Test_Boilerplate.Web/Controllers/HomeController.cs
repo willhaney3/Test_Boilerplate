@@ -27,9 +27,9 @@ namespace Test_Boilerplate.Web.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Test()
+    public ActionResult Test()
     {
-      await Task.Run(() => 0);
+      //await Task.Run(() => 0);
       // return results
       return View(null);
     }
