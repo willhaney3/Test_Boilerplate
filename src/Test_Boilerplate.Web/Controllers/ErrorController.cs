@@ -7,30 +7,30 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Test_Boilerplate.Web.Controllers
 {
-    public class ErrorController : AbpController
-    {
-        private readonly IErrorInfoBuilder _errorInfoBuilder;
+	public class ErrorController : AbpController
+	{
+		private readonly IErrorInfoBuilder _errorInfoBuilder;
 
-        public ErrorController(IErrorInfoBuilder errorInfoBuilder)
-        {
-            _errorInfoBuilder = errorInfoBuilder;
-        }
+		public ErrorController(IErrorInfoBuilder errorInfoBuilder)
+		{
+			_errorInfoBuilder = errorInfoBuilder;
+		}
 
-        public ActionResult Index()
-        {
-            var exHandlerFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
+		public ActionResult Index()
+		{
+			var exHandlerFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
 
-            var exception = exHandlerFeature != null
-                                ? exHandlerFeature.Error
-                                : new Exception("Unhandled exception!");
+			var exception = exHandlerFeature != null
+													? exHandlerFeature.Error
+													: new Exception("Unhandled exception!");
 
-            return View(
-                "Error",
-                new ErrorViewModel(
-                    _errorInfoBuilder.BuildForException(exception),
-                    exception
-                )
-            );
-        }
-    }
+			return View(
+					"Error",
+					new ErrorViewModel(
+							_errorInfoBuilder.BuildForException(exception),
+							exception
+					)
+			);
+		}
+	}
 }
